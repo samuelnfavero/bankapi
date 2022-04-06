@@ -17,6 +17,6 @@ public class UserController {
 
     public ResponseEntity<UserResponse> create(UserRequest userRequest){
         UserResponse userResponse = userService.create(userRequest);
-        return new ResponseEntity<UserResponse>(userResponse, HttpStatus.CREATED);
+        return new ResponseEntity<>(userResponse, HttpStatus.CREATED);
     }
 }
