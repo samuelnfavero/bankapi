@@ -1,5 +1,6 @@
 package com.restapi.bankapi.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.restapi.bankapi.dto.request.UserRequest;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,6 +34,7 @@ public class User {
     @Column
     private LocalDateTime lastUpdateDate;
     @OneToMany
+    @JsonIgnore
     private List<Account> accounts;
 
     public User(UserRequest userRequest){

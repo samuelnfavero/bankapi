@@ -1,7 +1,7 @@
 package com.restapi.bankapi.dto.request;
 
 
-import com.restapi.bankapi.models.User;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

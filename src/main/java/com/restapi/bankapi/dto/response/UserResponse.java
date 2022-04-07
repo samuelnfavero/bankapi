@@ -3,10 +3,12 @@ package com.restapi.bankapi.dto.response;
 import com.restapi.bankapi.models.Account;
 import com.restapi.bankapi.models.User;
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 import java.util.List;
 
 @AllArgsConstructor
+@Getter
 public class UserResponse {
     private String name;
     private String cpf;
