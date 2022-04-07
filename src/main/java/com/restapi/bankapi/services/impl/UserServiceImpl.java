@@ -1,14 +1,15 @@
-package com.restapi.bankapi.services;
+package com.restapi.bankapi.services.impl;
 
 import com.restapi.bankapi.dto.request.UserRequest;
 import com.restapi.bankapi.dto.response.UserResponse;
 import com.restapi.bankapi.models.User;
 import com.restapi.bankapi.repository.UserRepository;
+import com.restapi.bankapi.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     @Autowired
     UserRepository userRepository;

@@ -15,7 +15,7 @@ public class AccountRequest {
     private String userCpf;
     private int accountNumber;
     private int agency;
-    private int bankBalance;
+    private double bankBalance;
     @Enumerated(value = EnumType.STRING)
     private AccountTypeEnum type;
 }

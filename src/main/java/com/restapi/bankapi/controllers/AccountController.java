@@ -5,16 +5,19 @@ import com.restapi.bankapi.dto.response.AccountResponse;
 import com.restapi.bankapi.services.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/account")
 public class AccountController {
 
     @Autowired
     AccountService accountService;
 
     @PostMapping
-    public AccountResponse create(AccountRequest accountRequest){
+    public AccountResponse create(@RequestBody AccountRequest accountRequest){
         return accountService.create(accountRequest);
     }
 }
