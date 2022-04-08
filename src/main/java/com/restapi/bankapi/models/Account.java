@@ -1,5 +1,6 @@
 package com.restapi.bankapi.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.restapi.bankapi.dto.request.AccountRequest;
 import com.restapi.bankapi.enums.AccountTypeEnum;
 import lombok.*;
@@ -9,6 +10,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -40,6 +42,15 @@ public class Account {
     private LocalDateTime lastUpdate;
     @ManyToOne(cascade = CascadeType.ALL)
     private User user;
+    @Column
+    @ManyToMany
+    @JoinTable(
+            name = "transaction_accounts",
+            joinColumns = @JoinColumn(name = "accounts_id"),
+            inverseJoinColumns = @JoinColumn(name = "transaction_id")
+    )
+    @JsonIgnore
+    private List<Transaction> transaction;
 
     public Account(AccountRequest accountRequest){
         accountNumber = accountRequest.getAccountNumber();

@@ -47,7 +47,7 @@ public class Transaction {
     @CreatedDate
     private LocalDateTime transactionDate;
 
-    @OneToMany //Aqui é ManyToMany
+    @ManyToMany //Aqui é ManyToMany
     private List<Account> accounts;
 
     public Transaction(TransactionRequest transactionRequest){
