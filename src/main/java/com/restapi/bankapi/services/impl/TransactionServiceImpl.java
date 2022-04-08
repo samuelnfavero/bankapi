@@ -25,8 +25,8 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public TransactionResponse create(TransactionRequest transactionRequest) {
-        Account providerAccount = getAccount(transactionRequest.getProviderAccountNumber());
-        Account receiverAccount = getAccount(transactionRequest.getReceiverAccountNumber());
+        Account providerAccount = getAccount(transactionRequest.getProviderAccountNumber(), transactionRequest.getProviderAgency());
+        Account receiverAccount = getAccount(transactionRequest.getReceiverAccountNumber(), transactionRequest.getReceiverAgency());
         checkIfProviderHasEnoughtMoney(transactionRequest, providerAccount);
         Transaction transaction = new Transaction(transactionRequest);
 
@@ -41,8 +41,8 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
 
-    private Account getAccount(int accountNumber) {
-        return accountRepository.findByAccountNumber(accountNumber)
+    private Account getAccount(int accountNumber, int agency) {
+        return accountRepository.findAccount(accountNumber, agency)
                 .orElseThrow(() -> new AccountNotFoundException(accountNumber));
     }
 
