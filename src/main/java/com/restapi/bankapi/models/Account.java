@@ -25,7 +25,7 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
-    @Column
+    @Column(unique = true)
     private int accountNumber;
     @Column
     private int agency;

@@ -28,7 +28,7 @@ public class User {
     private UUID id;
     @Column
     private String name;
-    @Column
+    @Column(unique = true)
     private String cpf;
     @Column
     private String birthDate;

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/account")
 public class AccountController {
@@ -17,7 +19,7 @@ public class AccountController {
     AccountService accountService;
 
     @PostMapping
-    public AccountResponse create(@RequestBody AccountRequest accountRequest){
+    public AccountResponse create(@RequestBody @Valid AccountRequest accountRequest){
         return accountService.create(accountRequest);
     }
 }

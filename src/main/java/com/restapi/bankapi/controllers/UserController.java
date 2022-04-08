@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -19,9 +21,8 @@ public class UserController {
     @Autowired
     UserService userService;
 
-//    @PostMapping(produces = "application/json;charset=UTF-8")
     @PostMapping
-    public ResponseEntity<UserResponse> create(@RequestBody UserRequest userRequest){
+    public ResponseEntity<UserResponse> create(@RequestBody @Valid UserRequest userRequest){
         UserResponse userResponse = userService.create(userRequest);
         return new ResponseEntity<>(userResponse, HttpStatus.CREATED);
     }
