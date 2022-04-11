@@ -41,7 +41,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public List<AccountResponse> findAll() {
-        return accountRepository.findAll().stream()
+        return accountRepository.findAll(PageRequest.of(0,2)).stream()
                 .map(AccountResponse::new)
                 .collect(Collectors.toList());
     }
