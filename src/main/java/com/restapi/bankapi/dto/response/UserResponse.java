@@ -12,12 +12,15 @@ import java.util.List;
 public class UserResponse {
     private String name;
     private String cpf;
+
+    private String password;
     private String birthDate;
     private List<Account> accounts;
 
     public UserResponse(User user){
         name = user.getName();
         cpf = user.getCpf();
+        password = user.getPassword();
         birthDate = user.getBirthDate();
         accounts = user.getAccounts();
     }

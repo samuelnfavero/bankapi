@@ -31,6 +31,8 @@ public class User {
     @Column(unique = true)
     private String cpf;
     @Column
+    private String password;
+    @Column
     private String birthDate;
     @Column
     @CreatedDate
@@ -45,6 +47,7 @@ public class User {
     public User(UserRequest userRequest){
         name = userRequest.getName();
         cpf = userRequest.getCpf();
+        password = userRequest.getPassword();
         birthDate = userRequest.getBirthDate();
     }
 }

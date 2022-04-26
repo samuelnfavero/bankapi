@@ -19,6 +19,8 @@ public class UserRequest {
     private String name;
     @NotBlank @NotNull @CPF
     private String cpf;
+    @NotBlank @NotNull @Size(min = 5, max = 30)
+    private String password;
     @Size(max = 15)
     private String birthDate;
 
