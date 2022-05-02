@@ -5,7 +5,6 @@ import com.auth0.jwt.algorithms.Algorithm;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 import javax.servlet.FilterChain;
@@ -15,12 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class JWTFilterValidation extends BasicAuthenticationFilter {
+public class JWTValidationFilter extends BasicAuthenticationFilter {
 
-    public static final String HEADER_ATTRIBUTE = "Authorizarion";
+    public static final String HEADER_ATTRIBUTE = "Authorization";
     public static final String ATTRIBUTE_PREFIX = "Bearer ";
 
-    public JWTFilterValidation(AuthenticationManager authenticationManager) {
+    public JWTValidationFilter(AuthenticationManager authenticationManager) {
         super(authenticationManager);
     }
 
@@ -31,6 +30,7 @@ public class JWTFilterValidation extends BasicAuthenticationFilter {
 
         if(attribute == null || !attribute.startsWith(ATTRIBUTE_PREFIX)){
             chain.doFilter(request, response);
+            return;
         }
 
         String token = attribute.replace(ATTRIBUTE_PREFIX, "");
