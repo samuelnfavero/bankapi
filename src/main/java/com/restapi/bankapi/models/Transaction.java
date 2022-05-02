@@ -7,47 +7,36 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
-@Entity
-@Table(name = "transaction")
+@Document(collection = "transaction")
 @AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
 @EntityListeners(AuditingEntityListener.class)
 public class Transaction {
 
-    //Aqui eu vou fazer a busca personalizada por conta e agencia
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
 
-    @Column
+
     private int providerAccountNumber;
 
-    @Column
     private int providerAgency;
 
-    @Column
     private int receiverAccountNumber;
 
-    @Column
     private int receiverAgency;
 
-    @Column
     private double moneyAmount;
 
-    @Column
     @CreatedDate
     private LocalDateTime transactionDate;
 
-    @ManyToMany //Aqui é ManyToMany
     private List<Account> accounts;
 
     public Transaction(TransactionRequest transactionRequest){

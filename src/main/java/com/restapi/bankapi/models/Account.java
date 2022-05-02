@@ -42,15 +42,6 @@ public class Account {
     private LocalDateTime lastUpdate;
     @ManyToOne(cascade = CascadeType.ALL)
     private User user;
-    @Column
-    @ManyToMany
-    @JoinTable(
-            name = "transaction_accounts",
-            joinColumns = @JoinColumn(name = "accounts_id"),
-            inverseJoinColumns = @JoinColumn(name = "transaction_id")
-    )
-    @JsonIgnore
-    private List<Transaction> transaction;
 
     public Account(AccountRequest accountRequest){
         accountNumber = accountRequest.getAccountNumber();
