@@ -1,4 +1,4 @@
-package com.restapi.bankapi.data;
+package com.restapi.bankapi.security.data;
 
 import com.restapi.bankapi.models.User;
 import org.springframework.security.core.GrantedAuthority;

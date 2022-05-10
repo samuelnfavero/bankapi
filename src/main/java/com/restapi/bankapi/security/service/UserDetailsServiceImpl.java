@@ -1,6 +1,6 @@
-package com.restapi.bankapi.services.impl;
+package com.restapi.bankapi.security.service;
 
-import com.restapi.bankapi.data.UserDetailsData;
+import com.restapi.bankapi.security.data.UserDetailsData;
 import com.restapi.bankapi.models.User;
 import com.restapi.bankapi.repository.UserRepository;
 import lombok.AllArgsConstructor;

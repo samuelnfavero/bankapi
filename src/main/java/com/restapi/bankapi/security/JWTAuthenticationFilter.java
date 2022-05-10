@@ -3,7 +3,7 @@ package com.restapi.bankapi.security;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.restapi.bankapi.data.UserDetailsData;
+import com.restapi.bankapi.security.data.UserDetailsData;
 import com.restapi.bankapi.models.User;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
